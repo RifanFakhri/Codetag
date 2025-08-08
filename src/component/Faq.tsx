@@ -151,10 +151,16 @@ export default function FaqSection() {
             <div className="mt-8 bg-gray-50 p-6 rounded-xl">
               <h3 className="text-lg font-semibold text-gray-900 mb-3">Masih punya pertanyaan?</h3>
               <p className="text-gray-600 mb-4">Kami siap membantu! Hubungi tim dukungan kami untuk mendapatkan bantuan pribadi.</p>
-              <button className="inline-flex items-center px-6 py-3 bg-[#425953] text-white font-medium rounded-lg hover:bg-teal-700 transition-colors">
+             <a
+                href="https://wa.me/6281934179793?text=saya%20ingin%20pesan"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center px-6 py-3 bg-[#425953] text-white font-medium rounded-lg hover:bg-[#2c3d39] transition-colors"
+              >
                 <MessageSquare size={18} className="mr-2" />
                 Hubungi Dukungan
-              </button>
+              </a>
+
             </div>
           </div>
         </div>

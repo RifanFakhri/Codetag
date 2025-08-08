@@ -87,13 +87,17 @@ const Footer = () => {
               <h3 className="text-2xl font-semibold leading-relaxed">
                 Butuh bantuan untuk tugas atau proyek Anda?
               </h3>
-              <Link
-                href="/konsultasi"
+
+              <a
+                href="https://wa.me/6281234567890" // ganti dengan nomor WhatsApp kamu tanpa spasi dan tanda +
+                target="_blank"
+                rel="noopener noreferrer"
                 className="mt-6 inline-flex items-center gap-3 bg-white text-gray-900 font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-200 transition-colors"
               >
                 Konsultasi
                 <ArrowRight size={20} />
-              </Link>
+              </a>
+
             </div>
             <div className="mt-8 flex gap-5">
               {socialLinks.map((social, index) => (

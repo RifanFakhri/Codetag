@@ -63,12 +63,12 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             {/* FIX: Menambahkan legacyBehavior */}
             <Link href="/#home" passHref legacyBehavior>
-              <a 
-                onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}
-                className="text-2xl font-bold bg-gradient-to-r from-teal-600 to-emerald-500 bg-clip-text text-transparent"
-              >
-                JOKIIN RUSH
-              </a>
+             <a 
+              onClick={(e) => { e.preventDefault(); scrollToSection("home"); }}
+              className="text-2xl font-bold text-[#425953]"
+            >
+              JOKIIN RUSH
+            </a>
             </Link>
           </div>
 
@@ -146,7 +146,7 @@ export default function Navbar() {
                 className={`${
                   activeSection === item.id
                     ? "bg-emerald-50 text-emerald-600"
-                    : "text-gray-700 hover:bg-emerald-50 hover:text-emerald-600"
+                    : "text-gray-700 hover:bg-emerald-50 hover:text-[#425953]"
                 } block w-full text-left px-3 py-2 rounded-md text-base font-medium`}
               >
                 {item.label}

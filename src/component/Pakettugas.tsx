@@ -102,7 +102,7 @@ const PriceCard = ({ pkg, index }) => {
       onHoverEnd={() => setIsHovered(false)}
       className={`relative flex flex-col rounded-lg p-6 shadow-md transition-all duration-300 ${
         pkg.isHighlighted
-          ? 'bg-[#008A84] text-white border border-gray-700'
+          ? 'bg-[#425953] text-white border border-gray-700'
           : 'bg-gray-50 text-gray-800 border border-gray-200'
       }`}
     >
@@ -176,15 +176,21 @@ const PriceCard = ({ pkg, index }) => {
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
       >
-        <button
-          className={`w-full rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 shadow-sm ${
-            pkg.isHighlighted
-              ? 'bg-white text-gray-800 hover:bg-gray-100'
-              : 'bg-gray-800 text-white hover:bg-gray-700'
-          }`}
-        >
-          Pesan Sekarang
-        </button>
+        <a
+  href={`https://wa.me/6281934179793?text=${encodeURIComponent(
+    `Halo, saya ingin memesan paket *${pkg.title}* dengan harga Rp ${pkg.price}/tugas.`
+  )}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className={`w-full block text-center rounded-lg px-4 py-2 text-sm font-semibold transition-all duration-300 shadow-sm ${
+    pkg.isHighlighted
+      ? 'bg-white text-gray-800 hover:bg-gray-100'
+      : 'bg-gray-800 text-white hover:bg-gray-700'
+  }`}
+>
+  Pesan Sekarang
+</a>
+
       </motion.div>
     </motion.div>
   );

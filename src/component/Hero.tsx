@@ -30,13 +30,14 @@ export default function Hero() {
           {/* Checklist */}
           <div className="flex flex-col gap-3 mb-8 text-base sm:text-lg">
             <div className="flex items-center gap-3">
-              <input
+               <input
                 type="checkbox"
-                id="task1"
+                id="task2"
                 className="w-5 h-5 rounded border-2 border-white bg-transparent"
+                checked
                 disabled
               />
-              <label htmlFor="task1">1000+ Tugas Selesai</label>
+              <label htmlFor="task1">100+ Tugas Selesai</label>
             </div>
             <div className="flex items-center gap-3">
               <input
@@ -51,7 +52,7 @@ export default function Hero() {
           </div>
 
           {/* Garis Pembatas */}
-          <div className="border-t border-teal-300 mb-6"></div>
+          <div className="border-t border-white mb-6"></div>
 
           {/* Tombol Aksi */}
           <div className="flex flex-col sm:flex-row gap-4">

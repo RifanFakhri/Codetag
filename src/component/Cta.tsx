@@ -18,11 +18,14 @@ const CallToAction = () => {
             tepat waktu, dan sesuai harapan Anda.
           </p>
           <a
-            href="#kontak"
-            className="inline-block bg-white text-[#087977] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-gray-100 transition"
-          >
-            Hubungi Kami
-          </a>
+  href="https://wa.me/6281934179793?text=saya%20ingin%20pesan"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-block bg-[#ffffff] text-[#425953] font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-teal-700 transition-colors duration-300"
+>
+  Hubungi Kami
+</a>
+
         </div>
 
         {/* === Image Section (DIUBAH) === */}
