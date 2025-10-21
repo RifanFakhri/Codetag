@@ -17,16 +17,16 @@ const portfolioData: PortfolioItem[] = [
   {
     id: 1,
     category: 'Company Profile Website',
-    title: 'Jokilin Rush',
+    title: 'Jokiin Rush',
     imageUrl: '/portofolio-2.png',
-    modalImageUrl: '/portofolio-detail-1.png',
+    modalImageUrl: '/ss2.png',
   },
   {
     id: 2,
-    category: 'Service Website',
-    title: 'Jokilin Rush',
-    imageUrl: '/portofolio-2.png',
-    modalImageUrl: '/portofolio-detail-2.png',
+    category: 'Company Profile Website',
+    title: 'Pemerintah Desa Sebet',
+    imageUrl: '/portofolio3.png',
+    modalImageUrl: '/portofolio-3.jpeg',
   },
   {
     id: 3,
