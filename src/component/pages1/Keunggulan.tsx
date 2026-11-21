@@ -1,108 +1,107 @@
-import React from 'react';
+'use client';
+import Reveal from '@/component/shared/Reveal';
+import { motion } from 'framer-motion';
+
 import Image from 'next/image';
 
-export default function Features() {
+export default function WhyUs() {
   return (
-    <section id="tentangkami" className="bg-white py-16 md:py-24 px-4">
-      <div className="container mx-auto max-w-6xl">
-        
-        {/* === BAGIAN TEKS PENGANTAR (ATAS) === */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-16">
-          <div className="text-center lg:text-left">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 leading-tight mb-6">
-              Wujudkan <span className="text-blue-600">Pertumbuhan Bisnis</span> Lewat Inovasi Digital
-            </h2>
-            <div className="w-20 h-1 bg-blue-500 mx-auto lg:mx-0 mb-6 rounded-full"></div>
-          </div>
-          <div className="text-center lg:text-left">
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
-              CodeTag Studio adalah partner digital Anda dalam membangun website, aplikasi, dan solusi software yang modern, cepat, dan sesuai kebutuhan bisnis.
+    <main
+      id="keunggulan"  // ✅ id ditambahkan
+      className="bg-white font-sans flex items-center justify-center min-h-screen p-4 sm:p-6 md:p-8"
+    >
+      <div className="w-full max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+
+          {/* Text Section */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
+            <h1 className="text-4xl md:text-5xl font-bold text-black mb-3">
+              Mengapa Pilih Kami?
+            </h1>
+            <p className="text-lg text-gray-600 mb-12">
+              Keunggulan yang membuat kami berbeda dari yang lain
             </p>
-            <a
-            href="https://wa.me/6288291449821?text=Saya%20ingin%20bertanya"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:-translate-y-1"
-          >
-            Konsultasi Gratis
-          </a>
 
-          </div>
-        </div>
+            <div className="space-y-8">
+              {/* Item 1 */}
+              <FeatureItem
+                icon="fa-gears"
+                bgColor="#f97b22"
+                title="Cepat & Tepat Waktu"
+                description="Garansi pengerjaan sesuai deadline yang disepakati. Kami utamakan ketepatan waktu tanpa mengorbankan kualitas."
+              />
 
-        {/* === BAGIAN KARTU FITUR (BAWAH) === */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          
-          {/* --- Kartu Kiri: Daftar Fitur --- */}
-          <div className="space-y-6">
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="flex items-start mb-4">
-                <div className="bg-blue-100 p-3 rounded-lg mr-4">
-                  <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Web Development</h3>
-                  <p className="text-gray-600">Website responsif dan modern dengan teknologi terkini untuk pengalaman pengguna terbaik.</p>
-                </div>
-              </div>
-            </div>
+              {/* Item 2 */}
+              <FeatureItem
+                icon="fa-users"
+                bgColor="#5837d0"
+                title="Harga Terjangkau"
+                description="Tarif kompetitif yang ramah di kantong pelajar dan mahasiswa, dengan sistem pembayaran fleksibel."
+              />
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="flex items-start mb-4">
-                <div className="bg-green-100 p-3 rounded-lg mr-4">
-                  <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">Mobile Friendly</h3>
-                  <p className="text-gray-600">Optimasi mobile friendly untuk kenyamanan browsing tanpa batas</p>
-                </div>
-              </div>
-            </div>
+              {/* Item 3 */}
+              <FeatureItem
+                icon="fa-headset"
+                bgColor="#008A84"
+                title="Revisi Gratis"
+                description="Kami menyediakan unlimited revisi hingga tugas kamu benar-benar sesuai harapan. Tanpa biaya tambahan."
+              />
 
-            <div className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
-              <div className="flex items-start mb-4">
-                <div className="bg-purple-100 p-3 rounded-lg mr-4">
-                  <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">UI/UX Design</h3>
-                  <p className="text-gray-600">Desain antarmuka yang intuitif dan pengalaman pengguna yang memikat untuk engagement maksimal.</p>
-                </div>
-              </div>
+              {/* Item 4 */}
+              <FeatureItem
+                icon="fa-user-tie"
+                bgColor="#008A84"
+                title="Tim Profesional"
+                description="Dikerjakan oleh tim ahli dan berpengalaman sesuai bidang tugas. Hasil dikerjakan secara teliti dan terpercaya."
+              />
             </div>
           </div>
 
-          {/* --- Kartu Kanan: Screenshot Landing Page --- */}
-          <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 to-purple-500 opacity-75 blur-lg group-hover:opacity-100 transition duration-1000 group-hover:duration-200 rounded-2xl"></div>
-            <div className="relative bg-[#2D3139] rounded-2xl p-8 flex flex-col h-full transition-transform duration-300 group-hover:scale-[1.02]">
-              <div className="text-center mb-6">
-                <span className="inline-block border border-gray-600 text-gray-300 text-sm rounded-full px-5 py-2 bg-gray-800/50 backdrop-blur-sm">
-                  Design a website for landing page
-                </span>
-              </div>
-              <div className="flex-grow overflow-hidden rounded-xl">
-                <div className="relative h-80 md:h-96">
-                  <Image
-                    src="/ss.png" // Ganti dengan path gambar screenshot Anda
-                    alt="Screenshot of a hero section"
-                    fill
-                    className="rounded-xl shadow-lg object-cover"
-                  />
-                </div>
-              </div>
-              <div className="mt-6 flex justify-center">
+          {/* Image Section */}
+          <Reveal x={40} y={0} delay={0.2} className="w-full lg:w-1/2 flex justify-center lg:translate-y-10">
+            <div className="relative w-full max-w-sm md:max-w-md">
+              <div className="absolute inset-0 bg-slate-100 rounded-3xl"></div>
+              <div className="absolute -top-6 -right-6 w-36 h-36 bg-indigo-600 rounded-tr-[60px] rounded-bl-[60px]"></div>
+              <div className="relative p-6">
+                <Image
+                  src="/2.png"
+                  alt="Tim profesional sedang berdiskusi di depan laptop"
+                  width={500}
+                  height={500}
+                  className="w-full h-full object-cover rounded-2xl shadow-xl"
+                />
               </div>
             </div>
-          </div>
+          </Reveal>
+
         </div>
       </div>
-    </section>
+    </main>
+  );
+}
+
+type FeatureItemProps = {
+  icon: string;
+  bgColor: string;
+  title: string;
+  description: string;
+};
+
+function FeatureItem({ icon, bgColor, title, description }: FeatureItemProps) {
+  return (
+    <Reveal x={-40} y={0} className="flex items-center gap-4 text-left">
+      <motion.div
+        whileHover={{ scale: 1.2, rotate: 360 }}
+        transition={{ duration: 0.6 }}
+        className="flex-shrink-0 w-14 h-14 rounded-full flex items-center justify-center cursor-pointer"
+        style={{ backgroundColor: bgColor }}
+      >
+        <i className={`fa-solid ${icon} text-white text-2xl`}></i>
+      </motion.div>
+      <div>
+        <h3 className="text-xl font-semibold text-gray-800">{title}</h3>
+        <p className="text-gray-500 leading-relaxed">{description}</p>
+      </div>
+    </Reveal>
   );
 }

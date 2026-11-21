@@ -2,7 +2,9 @@
 
 import { useState } from 'react';
 import { Poppins } from 'next/font/google';
-import { ChevronDown, ChevronRight, MessageSquare, HelpCircle } from 'lucide-react';
+import { ChevronDown, MessageSquare, HelpCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Reveal from '@/component/shared/Reveal';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -41,7 +43,7 @@ export default function FaqSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Phone Mockup */}
-          <div className="relative flex justify-center order-2 lg:order-1">
+          <Reveal x={-60} y={0} className="relative flex justify-center order-2 lg:order-1">
             {/* Floating Help Badge */}
             <div className="absolute top-10 left-20 -translate-x-1/4 bg-indigo-500 text-white flex items-center gap-2 px-4 py-2 rounded-full shadow-lg z-20 animate-float">
               <HelpCircle size={20} />
@@ -61,13 +63,13 @@ export default function FaqSection() {
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 w-28 h-5 bg-gray-100 rounded-b-lg"></div>
                 <div className="flex-grow pt-8 overflow-y-auto">
                   {/* Chat Bubbles */}
-                  <div className="flex justify-end mb-3">
+                  <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.6, type: 'spring', stiffness: 260, damping: 20 }} className="flex justify-end mb-3">
                     <div className="bg-teal-50 text-gray-700 p-3 rounded-lg max-w-xs">
                       <p className="text-sm">Halo kak, saya ingin bertanya untuk Jasa Pembuatan Website</p>
                       <p className="text-xs text-right text-gray-400 mt-1">12:03</p>
                     </div>
-                  </div>
-                  <div className="flex justify-start mb-3">
+                  </motion.div>
+                  <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: 1.6, type: 'spring', stiffness: 260, damping: 20 }} className="flex justify-start mb-3">
                     <div className="bg-white border border-gray-100 p-3 rounded-lg max-w-xs shadow-sm">
                       <p className="text-sm">Tentu kak! Bisa dikirimkan detailnya, Kami siap bantu</p>
                       <div className="flex items-center justify-end gap-1 mt-1">
@@ -77,14 +79,14 @@ export default function FaqSection() {
                         </svg>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                   {/* Additional chat bubbles for realism */}
-                  <div className="flex justify-end mb-3">
+                  <motion.div initial={{ opacity: 0, y: 20, scale: 0.9 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ delay: 2.6, type: 'spring', stiffness: 260, damping: 20 }} className="flex justify-end mb-3">
                     <div className="bg-teal-50 text-gray-700 p-3 rounded-lg max-w-xs">
                       <p className="text-sm">Ini detail Fiturnya kak...</p>
                       <p className="text-xs text-right text-gray-400 mt-1">12:05</p>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 {/* Input area */}
                 <div className="p-3 border-t border-gray-100">
@@ -103,10 +105,10 @@ export default function FaqSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
 
           {/* Right Column: FAQ */}
-          <div className="order-1 lg:order-2">
+          <Reveal x={60} y={0} delay={0.15} className="order-1 lg:order-2">
             <div className="mb-8">
               <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-indigo-500 rounded-full mb-3">
                 Pertanyaan yang Sering Diajukan
@@ -121,8 +123,9 @@ export default function FaqSection() {
             
             <div className="space-y-2">
               {faqData.map((faq, index) => (
-                <div 
+                <Reveal 
                   key={index} 
+                  delay={index * 0.1} 
                   className={`rounded-xl border border-gray-200 transition-all duration-200 ${openIndex === index ? 'shadow-md border-indigo-500' : 'hover:border-gray-300'}`}
                 >
                   <button
@@ -135,16 +138,24 @@ export default function FaqSection() {
                       {faq.question}
                     </span>
                     <div className={`ml-4 flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all duration-200 ${openIndex === index ? 'bg-teal-100 text-indigo-600 rotate-180' : 'bg-gray-100 text-gray-600'}`}>
-                      <ChevronDown size={20} className="transition-transform duration-200" />
+                      <ChevronDown size={20} />
                     </div>
                   </button>
-                  <div
-                    id={`faq-content-${index}`}
-                    className={`px-6 pb-6 ${openIndex === index ? 'block' : 'hidden'}`}
-                  >
-                    <p className="text-gray-600">{faq.answer}</p>
-                  </div>
-                </div>
+                  <AnimatePresence initial={false}>
+                    {openIndex === index && (
+                      <motion.div
+                        id={`faq-content-${index}`}
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+                        className="overflow-hidden"
+                      >
+                        <p className="px-6 pb-6 text-gray-600">{faq.answer}</p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </Reveal>
               ))}
             </div>
             
@@ -162,7 +173,7 @@ export default function FaqSection() {
               </a>
 
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
       

@@ -1,24 +1,24 @@
-import Navbar from '@/component/pages1/Navbar';
+import Navbar from '@/component/shared/Navbar';
+import Footer from '@/component/shared/Footer';
 import Hero from '@/component/pages1/Hero';
-import Services from '@/component/pages1/Services';
-import Keunggulan from '@/component/pages1/Keunggulan';   
-import CaraKerja from '@/component/pages1/CaraKerja';
-import Pakettugas from '@/component/pages1/Pakettugas';
-import Feedback from '@/component/pages1/Feedback';
+import TrustedBy from '@/component/pages1/TrustedBy';
+import TentangKami from '@/component/pages1/TentangKami';
+import Layanan from '@/component/pages1/Layanan';
+import Keunggulan from '@/component/pages1/Keunggulan';
+import Portofolio from '@/component/pages1/Portofolio';
 import Cta from '@/component/pages1/Cta';
 import Faq from '@/component/pages1/Faq';
-import Footer from '@/component/pages1/Footer';
 
 export default function Page1() {
   return (
-    <>  
+    <>
       <Navbar />
       <Hero />
-      <Services />
+      <TrustedBy />
+      <TentangKami />
+      <Layanan />
       <Keunggulan />
-      <CaraKerja />
-      <Pakettugas />
-      <Feedback />
+      <Portofolio />
       <Cta />
       <Faq />
       <Footer />

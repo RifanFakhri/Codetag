@@ -1,3 +1,4 @@
+import Reveal from '@/component/shared/Reveal';
 // File: app/fitur/page.js
 
 import { 
@@ -26,7 +27,7 @@ export default function FeaturesPage() {
           </div>
           
           {/* Grid untuk Kartu Fitur */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <Reveal className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             {/* Kartu 1: Harga Terjangkau */}
             <div className="bg-white rounded-2xl p-6 text-center border border-gray-200 shadow hover:shadow-lg transition-all duration-300 hover:-translate-y-2">
@@ -65,10 +66,10 @@ export default function FeaturesPage() {
               <p className="text-gray-600 text-sm">Website dibuat khusus sesuai kebutuhan dan preferensi Anda.</p>
             </div>
             
-          </div>
+          </Reveal>
 
           {/* CTA Section */}
-          <div className="mt-20 text-center bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 shadow-lg">
+          <Reveal className="mt-20 text-center bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-8 shadow-lg">
             <h3 className="text-3xl font-bold text-white mb-4">Siap Mewujudkan Website Impian Anda?</h3>
             <p className="text-gray-100 mb-6 max-w-2xl mx-auto">
               Konsultasi gratis dengan tim kami untuk membahas kebutuhan website Anda dan dapatkan penawaran terbaik.
@@ -76,7 +77,7 @@ export default function FeaturesPage() {
             <button className="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 transform hover:-translate-y-1 shadow">
               Hubungi Kami Sekarang
             </button>
-          </div>
+          </Reveal>
         </div>
       </section>
     </main>

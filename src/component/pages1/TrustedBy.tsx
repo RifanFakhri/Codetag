@@ -1,3 +1,4 @@
+import Reveal from '@/component/shared/Reveal';
 // components/TrustedBy.js
 import Image from 'next/image';
 
@@ -20,8 +21,9 @@ const TrustedBy = () => {
         {/* Kontainer Logo (Grid) */}
         <div className="mt-6 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
           {logos.map((logo, index) => (
-            <div
+            <Reveal
               key={index}
+              delay={index * 0.1}
               className="flex items-center justify-center rounded-xl bg-white p-4 shadow-md transition-shadow duration-300 hover:shadow-lg"
             >
               <Image
@@ -32,7 +34,7 @@ const TrustedBy = () => {
                 className="h-8 w-auto sm:h-9"
                 style={{ objectFit: 'contain' }}
               />
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

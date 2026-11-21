@@ -1,3 +1,4 @@
+import Reveal from '@/component/shared/Reveal';
 import React from 'react';
 import Image from 'next/image';
 import Link from "next/link";
@@ -34,17 +35,18 @@ type ServiceCardProps = {
   description: string;
 };
 
-const ServiceCard: React.FC<ServiceCardProps> = ({ imageUrl, title, price, description }) => {
+const ServiceCard: React.FC<ServiceCardProps & { i: number }> = ({ imageUrl, title, price, description, i }) => {
   return (
-    <div id="layanan" className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col
+    <Reveal delay={i * 0.15} id="layanan" className="group bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col
                     transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
       
       {/* Gambar Layanan */}
-      <div className="relative w-full h-48">
+      <div className="relative w-full h-48 overflow-hidden">
         <Image
           src={imageUrl}
           alt={title}
           fill
+          className="transition-transform duration-700 group-hover:scale-110"
           style={{ objectFit: 'cover' }}
         />
       </div>
@@ -66,7 +68,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ imageUrl, title, price, descr
         </button>
         </Link>
       </div>
-    </div>
+    </Reveal>
   );
 };
 
@@ -78,20 +80,21 @@ const Services = () => {
       <div className="max-w-7xl mx-auto">
         
         {/* Judul Bagian */}
-        <div className="text-center mb-16">
+        <Reveal className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900">
             Layanan Kami
           </h2>
           <p className="mt-3 text-lg text-gray-500">
             Pilihan Layanan Unggulan CodeTag Studio
           </p>
-        </div>
+        </Reveal>
 
         {/* Grid untuk Kartu Layanan */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {servicesData.map((service) => (
+          {servicesData.map((service, i) => (
             <ServiceCard
               key={service.title}
+              i={i}
               imageUrl={service.imageUrl}
               title={service.title}
               price={service.price}
